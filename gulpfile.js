@@ -52,7 +52,7 @@ let gulp			= require ('gulp'),
 			fonts:	'src/fonts/**/*.*'
 		},
 		dir: 'build',
-		produc:'../poliakh.github.io/myportfolio',
+		produc:'../poliakh.github.io/myportfolio/makets/myclocks',
 		test : 'test'
 	};
 
@@ -101,6 +101,8 @@ gulp.task('build',['clean','htmlmin','sass','script','img'], ()=>{
 		.pipe(gulp.dest(path.build.html));
 	gulp.src(path.src.src + '/preview')
 		.pipe(gulp.dest(path.build.html));
+	gulp.src(path.src.src + '/audio/**.*')
+		.pipe(gulp.dest(path.build.html + '/audio/'));
 });
 
 
