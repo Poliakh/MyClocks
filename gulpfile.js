@@ -101,6 +101,8 @@ gulp.task('build',['clean','htmlmin','sass','script','img'], ()=>{
 		.pipe(gulp.dest(path.build.html));
 	gulp.src(path.src.src + '/preview')
 		.pipe(gulp.dest(path.build.html));
+	gulp.src(path.src.src + '/audio/**.*')
+		.pipe(gulp.dest(path.build.html + '/audio/'));
 });
 
 
