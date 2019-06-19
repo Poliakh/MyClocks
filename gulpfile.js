@@ -52,7 +52,7 @@ let gulp			= require ('gulp'),
 			fonts:	'src/fonts/**/*.*'
 		},
 		dir: 'build',
-		produc:'../poliakh.github.io/myportfolio\site\myclocks',
+		produc:'../poliakh.github.io/myportfolio/site/myclocks',
 		test : 'test'
 	};
 
