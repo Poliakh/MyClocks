@@ -52,7 +52,11 @@ let gulp			= require ('gulp'),
 			fonts:	'src/fonts/**/*.*'
 		},
 		dir: 'build',
+<<<<<<< HEAD
+		produc:'../poliakh.github.io/myportfolio/makets/myclocks',
+=======
 		produc:'../poliakh.github.io/myportfolio/site/myclocks',
+>>>>>>> e243267204c1e881106964229f2b73b9e02032b8
 		test : 'test'
 	};
 
@@ -157,10 +161,6 @@ gulp.task('script', ()=>{
 			presets: ['@babel/env']
 		}))
 		.pipe(gulpif(argv.prod, uglify()))//минимазция js
-		// .pipe(babel({
-		// 	presets: ['@babel/env']
-		// }))
-		// .pipe(gulpif(argv.prod, uglify()))//минимазция js
 		.pipe(gulpif(!argv.prod, sourcemaps.write()))
 		.pipe(gulp.dest(path.build.js))
 		// .pipe(browserSync.reload({stream:true})); //незачем
