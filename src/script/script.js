@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 const audio = new Audio('./audio/audio_alarm.ogg');
 let alarmFlag;
 

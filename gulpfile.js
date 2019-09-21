@@ -133,9 +133,10 @@ gulp.task('sass', ()=>{
 				} )
 			))
 	.pipe(autoprefixer(
-		['last 3 version', '> 1%', 'ie 8', 'ie 7'],
+		['last 3 version'],
+		// ['last 3 version', '> 1%', 'ie 8', 'ie 7'],
 		{cascade: true}))
-		// .pipe(cssnano())
+		.pipe(cssnano())
 		.pipe(gulpif(argv.prod, cleanCSS({debug: true}, (details) => {
 			console.log(`${details.name}: ${details.stats.originalSize}`);
 			console.log(`${details.name}: ${details.stats.minifiedSize}`);
@@ -146,26 +147,16 @@ gulp.task('sass', ()=>{
 	});
 
 
-//css - работает
-// gulp.task('style',['sass'], ()=>{
-// 	gulp.src(path.src.css)
-// 		.pipe(concat('style.css'))
-// 		//.pipe(cssnano())
-// 		//.pipe(rename({suffix:'.min'}))
-// 		.pipe(gulp.dest(path.build.style))
-// 		.pipe(browserSync.reload({stream:true}));
-// });
-
 //script
 gulp.task('script', ()=>{
 	gulp.src(path.src.js)
 		.pipe(sourcemaps.init())
 		.pipe(plumber())
 		.pipe(concat('script.js'))
-		// .pipe(babel({
-		// 	presets: ['@babel/env']
-		// }))
-		// .pipe(gulpif(argv.prod, uglify()))//минимазция js
+		.pipe(babel({
+			presets: ['@babel/env']
+		}))
+		.pipe(gulpif(argv.prod, uglify()))//минимазция js
 		.pipe(gulpif(!argv.prod, sourcemaps.write()))
 		.pipe(gulp.dest(path.build.js))
 		// .pipe(browserSync.reload({stream:true})); //незачем

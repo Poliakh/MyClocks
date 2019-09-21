@@ -5,6 +5,9 @@
 	font-style: normal;
 	
 }
+html{
+	background-color:inherit !important;
+}
 .visible {
 	display: block;
 }
@@ -61,10 +64,6 @@ body {
 			color: $textYl;
 		}
 	}
-	&__bar {
-
-	}
-
 }
 .inputAlarm {
 
